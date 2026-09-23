@@ -1,0 +1,23 @@
+CREATE DATABASE ecom25aug;
+
+use ecom25aug;
+
+CREATE TABLE category(cid int PRIMARY KEY AUTO_INCREMENT,cname varchar(20));
+
+CREATE TABLE product(pid int PRIMARY KEY AUTO_INCREMENT,pname varchar(50),catid int ,price float,description varchar(100) ,FOREIGN KEY (catid) REFERENCES category(cid))
+
+CREATE TABLE users(uid int PRIMARY KEY AUTO_INCREMENT, username varchar(30) ,email varchar(50),contact int );
+
+CREATE TABLE cart(cartid int PRIMARY KEY AUTO_INCREMENT, uid int ,pid int ,qty int ,FOREIGN KEY(uid) REFERENCES users(uid) , FOREIGN KEY (pid) REFERENCES product(pid) );
+
+CREATE TABLE orders(orderid int PRIMARY KEY AUTO_INCREMENT,cartid int, total float, FOREIGN KEY (cartid) REFERENCES cart(cartid));
+
+CREATE TABLE payments(paymentid int PRIMARY KEY AUTO_INCREMENT,orderid int, amount float, status ENUM('pending','done','reject'),transcationid varchar(50),FOREIGN KEY (orderid) REFERENCES orders(orderid));
+ALTER TABLE product ADD COLUMN qty int;
+
+ALTER TABLE product  CHANGE qty productqty int;
+
+ALTER TABLE product DROP COLUMN productqty;
+
+drop TABLE product;
+

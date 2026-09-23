@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+class A{
+	public: 
+	    int a;
+	    void getA(){
+	    	cout<<"\n Enter a:";
+	    	cin>>a;
+		}
+};
+class B: public A{
+		public: 
+	    int b;
+	    void getB(){
+	    	cout<<"\n Enter b:";
+	    	cin>>b;
+		}
+};
+class C : public B{
+		public: 
+	    int c;
+	    void getC(){
+	    	cout<<"\n Enter c:";
+	    	cin>>c;
+		}
+		void add(){
+			cout<<"additon="<<a+b+c;
+		}
+};
+main(){
+	C c1;
+	c1.getA();
+	c1.getB();
+	c1.getC();
+	c1.add();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

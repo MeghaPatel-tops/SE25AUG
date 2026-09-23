@@ -1,0 +1,6 @@
+//1.without return without parameter
+//2.without returntype with parameter
+//3.with return type with parameter
+//4.with return type without parameter
+
+

@@ -1,0 +1,20 @@
+logical
+
+AND(&&)
+cond-1   cond-2  result
+  0        0       0
+  0        1       0
+  1        0       0
+  1        1       1
+  
+ OR(||)
+cond-1   cond-2  result
+  0        0       0
+  0        1       1
+  1        0       1
+  1        1       1 
+  
+  Not
+  0  1
+  1  0
+

@@ -1,0 +1,32 @@
+ecom:
+admin:
+id,pwd
+
+category:
+cid(pk) cname 
+
+product:
+pid(pk)
+pname
+catid(fk)
+price,descrition,qty
+
+users
+uid(pk)
+uname
+contact
+email
+
+address
+uid   address zipcode
+
+addtocart
+cartid(pk) uid  pid  qty 
+
+order:
+orderid(pk) cartid(fk) total 
+
+payment:
+paymentid pk, orderid (fk), amount,status,transcaction id
+
+
