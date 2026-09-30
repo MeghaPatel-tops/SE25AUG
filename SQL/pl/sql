@@ -1,0 +1,73 @@
+CREATE PROCEDURE getProduct()
+SELECT * from product;
+CALL getProduct();
+
+
+
+CREATE PROCEDURE getProductById(Id int)
+SELECT * from product where pid=Id;
+
+CALL getProductById(13);
+
+
+CREATE VIEW productview as SELECT pid,catid,cname,pname,price from product JOIN category ON product.catid = category.cid;
+
+
+
+CREATE TRIGGER productTrigger 
+AFTER UPDATE on product
+FOR EACH ROW
+INSERT into temptbl(pid,timeof)VALUES(old.pid,now());
+
+
+START TRANSACTION;
+UPDATE product SET price=2500 WHERE pid=5;
+COMMIT;
+
+START TRANSACTION;
+UPDATE product SET price=3000 WHERE pid=5;
+ROLLBACK;
+
+START TRANSACTION;
+SAVEPOINT sp1;
+INSERT INTO product(pname,price,catid,description)VALUES("pumas shoes",2999,3,"sports soes");
+
+SAVEPOINT sp2;
+UPDATE product SET price=100 where pid=5;
+
+SAVEPOINT sp3;
+UPDATE product SET price=200 where pid=6;
+
+ROLLBACK to sp3;
+COMMIT
+
+
+ DELIMITER $$
+ CREATE PROCEDURE priceIncreseProduct()
+ BEGIN
+ DECLARE cpid int;
+ DECLARE cprice float;
+ DECLARE done INT DEFAULT 0;
+ 
+ DECLARE productCursor CURSOR FOR
+ SELECT pid,price FROM product;
+ 
+ DECLARE CONTINUE HANDLER FOR NOT FOUND
+  SET done = 1;
+  
+  OPEN productCursor;
+  ploop:LOOP
+      FETCH productCursor into cpid,cprice;
+      
+      if done=1 THEN
+         LEAVE ploop;
+      END IF;   
+      
+      UPDATE product SET price=cprice+200 where pid=cpid;
+  END LOOP;
+  
+  CLOSE productCursor;
+  
+  END  $$;
+ 
+  
