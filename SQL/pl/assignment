@@ -1,0 +1,34 @@
+
+DELIMITER //
+
+CREATE PROCEDURE getPnameByRow()
+BEGIN
+    DECLARE cpid INT;
+    DECLARE cname VARCHAR(100);
+    DECLARE done INT DEFAULT 0;
+
+    DECLARE productCursor CURSOR FOR
+        SELECT pid, pname FROM product;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND
+        SET done = 1;
+
+    OPEN productCursor;
+
+    ploop: LOOP
+        FETCH productCursor INTO cpid, cname;
+
+        IF done = 1 THEN
+            LEAVE ploop;
+        END IF;
+
+        SELECT cpid, cname;
+
+    END LOOP ploop;
+
+    CLOSE productCursor;
+END //
+
+DELIMITER ;
+
+CALL getPnameByRow();
