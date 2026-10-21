@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            text-align: center;
+            display: grid;
+            grid-template-areas: 'header header header header header '
+            'aside section section section section '
+            'aside art1 art1 art2 art2'
+            'footer footer footer footer footer ';
+            gap:20px
+        }
+        header{
+            padding: 20px 0px;
+            background-color: aquamarine;
+            grid-area: header;
+        }
+        aside{
+            background-color: aqua;
+            height: 400px;
+            grid-area: aside;
+        }
+        section{
+            background-color: yellow;
+            grid-area: section;
+        }
+        #art1{
+            grid-area: art1;
+            background-color: orange;
+        }
+         #art2{
+            grid-area: art2;
+            background-color: rgb(190, 168, 125);
+        }
+        footer{
+            grid-area: footer;
+            background-color: greenyellow;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>Header</header>
+        <Aside>Aside</Aside>
+        <section>Section</section>
+        <Article id="art1">Article-1</Article>
+        <Article id="art2">Article-2</Article>
+        <footer>Footer</footer>
+    </div>
+    
+</body>
+</html>

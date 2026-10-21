@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first{
+            background-color: aqua;
+            padding: 150px 0px;
+            position: relative;
+            top:50px;
+        }
+        .inner{
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .sec{
+            height: 300px;
+            width: 500px;
+            background-color: orange;
+        }
+        .sticky-div{
+            background-color: black;
+            color: white;
+            text-align: center;
+            position: sticky;
+            top:0px;
+            z-index: 1;
+        }
+        .fixed-div{
+            height: 300px;
+            width: 300px;
+            background-color: yellow;
+            position: fixed;
+            right: 10px;
+            top:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-div">
+        <h1>Welcome To app(sticky div example)</h1>
+    </div>
+    <div class="first">
+        Relative example
+        <div class="inner"></div>  
+    </div>
+    <div class="sec">
+
+    </div>
+    <div class="first">
+        <div class="inner">
+            absoulute
+        </div>  
+    </div>
+    <div class="first">
+        <div class="inner"></div>  
+    </div>
+    <div class="fixed-div">
+        Fixed div example
+    </div>
+</body>
+</html>
