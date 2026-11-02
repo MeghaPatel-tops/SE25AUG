@@ -1,0 +1,227 @@
+*{
+    font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+header{
+    background-color: black;
+    height: 80px;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.logo-div{
+    flex: 1;
+}
+.logo-div i{
+    color: white;
+    display: none;
+}
+nav{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+header ul{
+     display: flex;
+     gap:20px
+}
+header ul li {
+     color: white;
+     list-style: none;
+}
+header button{
+    border: 2px solid orange;
+    color: orange;
+    background-color: transparent;
+    padding: 7px 50px;
+    border-radius: 5px;
+}
+header button:hover{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+.hero{
+    padding: 0px 0px;
+    display:  flex;
+    height: 600px;
+    /* overflow: hidden; */
+    gap:50px;
+
+}
+.hero-img{
+    position: relative;
+    flex: 1;
+}
+#img1{
+    position: absolute;
+    
+}
+#img2{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    animation-name: plateMove;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+   
+}
+@keyframes plateMove {
+    from{
+        opacity: 0;
+        transform:  translate(-400px,150px) rotate(-45deg);
+    }
+    to{
+        opacity: 1;
+        transform:  translate(100px,150px) rotate(45deg);
+    }
+}
+.hero-text{
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    gap:20px
+}
+.hero-text h1{
+    font-size: 3em;
+    font-weight: 400;
+}
+.darktext{
+    font-weight: bolder;
+}
+.hero-text p{
+    color: gray;
+    font-size: 1em;
+    line-height: 30px;
+}
+.darkbtn{
+    padding: 10px 50px;
+    background-color: orange;
+    color: rgb(38, 37, 37);
+    border: none;
+    border-radius: 5px;
+}
+.lightbtn{
+    padding: 10px 50px;
+    background-color: transparent;
+    color: orange;
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.btndiv{
+    display: flex;
+    gap:20px
+}
+.menu{
+    position: relative;
+    margin: 50px 0px;
+    padding: 100px 100px;
+   
+}
+.sub{
+    text-align: center;
+    color: rgb(26, 26, 46);
+}
+.subdes{
+    text-align: center;
+    color: rgb(26, 26, 46);
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+.menu-flex{
+    margin-top: 50px;
+    display: flex;
+    gap:20px;
+   
+}
+.menu-col {
+    flex: 1;
+    box-shadow: 2px 2px 3px gray;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0;
+    animation: MenuImgUp 4s ease forwards;
+}
+
+@keyframes MenuImgUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+}
+
+#menu-type-1 {
+    animation-delay: 1s;
+}
+
+#menu-type-2 {
+    animation-delay: 2s;
+}
+
+#menu-type-3 {
+    animation-delay: 3s;
+}
+
+#menu-type-4 {
+    animation-delay: 4s;
+}
+
+.menu-col img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+     display: block;
+   
+}
+.menu-overlay{
+  
+     /* width: 100%; */
+    background-color: rgba(0,0,0,0.2);
+     border-radius: 20px;
+    height: auto;
+    position: absolute;
+      inset: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+}
+.menu-col:hover  .menu-overlay{
+    opacity: 1;
+}
+.menu-type{
+    padding: 100px 0px 10px;
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    color: gray;
+    font-size: 1em;
+}
+.menu-type-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu-line{
+    padding: 2px;
+    background-color: gray;
+    border-radius: 2px;
+}
+

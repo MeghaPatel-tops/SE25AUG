@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy - Online Store</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* Navbar */
+nav {
+    background: #222;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    color: #ffcc00;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Hero Slider */
+.hero {
+    height: 300px;
+    background: #2874f0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: background 0.4s;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+.hero button {
+    padding: 12px 25px;
+    border: none;
+    background: #ffcc00;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controls {
+    margin-top: 18px;
+}
+
+.controls button {
+    padding: 7px 15px;
+    margin: 0 5px;
+}
+
+/* Products */
+.products {
+    padding: 35px 7%;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+}
+
+.card h3 {
+    margin: 12px 0;
+}
+
+.price {
+    color: #15803d;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.card button {
+    background: #2874f0;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 6px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h2>ShopEasy</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Slider -->
+<section class="hero" id="hero">
+    <h1 id="title">Big Shopping Sale!</h1>
+    <p id="subtitle">Get amazing deals on your favourite products.</p>
+    <button onclick="showProducts()">Shop Now</button>
+
+    <div class="controls">
+        <button onclick="changeSlide(-1)">❮ Previous</button>
+        <button onclick="changeSlide(1)">Next ❯</button>
+    </div>
+</section>
+
+<!-- Product Catalog -->
+<section class="products" id="products">
+    <h2>Our Products</h2>
+
+    <div class="product-list">
+
+        <div class="card">
+            <img src="https://placehold.co/300x200?text=Headphones"
+                 alt="Headphones">
+            <h3>Headphones</h3>
+            <p class="price">₹999</p>
+            <button onclick="addToCart('Headphones')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://placehold.co/300x200?text=Smartphone"
+                 alt="Smartphone">
+            <h3>Smartphone</h3>
+            <p class="price">₹12,999</p>
+            <button onclick="addToCart('Smartphone')">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://placehold.co/300x200?text=Watch"
+                 alt="Watch">
+            <h3>Smart Watch</h3>
+            <p class="price">₹1,499</p>
+            <button onclick="addToCart('Smart Watch')">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contact">
+    <p>© 2026 ShopEasy | Happy Shopping!</p>
+</footer>
+
+<script>
+// Slider data
+let slides = [
+    {
+        title: "Big Shopping Sale!",
+        subtitle: "Get amazing deals on your favourite products.",
+        color: "#2874f0"
+    },
+    {
+        title: "Latest Smartphones",
+        subtitle: "Discover technology at great prices.",
+        color: "#7c3aed"
+    },
+    {
+        title: "Fashion & Accessories",
+        subtitle: "Upgrade your style with exciting offers.",
+        color: "#db2777"
+    }
+];
+
+let currentSlide = 0;
+
+// Change slider
+function changeSlide(direction) {
+    currentSlide = (currentSlide + direction + slides.length)
+                   % slides.length;
+
+    document.getElementById("title").innerText =
+        slides[currentSlide].title;
+
+    document.getElementById("subtitle").innerText =
+        slides[currentSlide].subtitle;
+
+    document.getElementById("hero").style.background =
+        slides[currentSlide].color;
+}
+
+// Automatic slider
+setInterval(function() {
+    changeSlide(1);
+}, 3000);
+
+// Shop Now button
+function showProducts() {
+    document.getElementById("products").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Demo Add to Cart
+function addToCart(product) {
+    alert(product + " added to cart!");
+}
+</script>
+
+</body>
+</html>
+```

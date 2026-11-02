@@ -1,0 +1,125 @@
+@media screen and (max-width:768px) {
+    * {
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    header {
+       
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto !important;
+        /* gap:30px;
+        padding: 20px 10px 30px; */
+        padding: 20px 10px !important;
+        justify-content: center;
+    }
+
+    .logo-div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        display: none;
+    }
+
+    header ul {
+
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .logo-div i {
+        display: flex;
+    }
+
+    #menu-toggle:checked~nav {
+
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+
+
+    }
+
+    .hero {
+        height: auto !important;
+        flex-wrap: wrap-reverse;
+        padding: 50px 0px;
+    }
+
+    .hero-text {
+
+        padding: 0 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .hero-text p {
+        display: none;
+    }
+
+    #img1 {
+        display: none;
+    }
+
+    #img2 {
+        height: 200px;
+        width: 200px;
+        animation: none !important;
+        transition: none !important;
+        opacity: 1;
+    }
+    .menu{
+        position: relative;
+        margin: 50px 0px;
+        padding: 50px 0px;
+    
+    }
+    .menu-flex{
+        flex-direction: column;
+    }
+    .menu-type{
+        flex-wrap: wrap;
+    }
+    .menu-col img{
+        object-fit: cover;
+    }
+
+}
+
+@media screen and (max-width:900px) {
+    .hero {
+        height: auto;
+        
+        height: auto !important;
+        flex-direction: column;
+        padding: 50px 0px;
+        gap:50px;
+        text-align: center;
+    }
+    #img2 {
+        position: static;
+        height: 350px;
+        width: 350px;
+    }
+    .hero-img{
+        order: 2;
+    }
+    .hero-text{
+        order: 1;
+        align-items: center;
+    }
+    
+}
+

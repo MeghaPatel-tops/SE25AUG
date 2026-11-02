@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 200px 50px;
+            display: flex;
+            gap:20px;
+            justify-content: space-between;
+            
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            transition: transform 3s linear;
+        }
+        #box-1:hover{
+            transform: rotate(45deg);
+        }
+         #box-2:hover{
+            transform: scale(0.5);
+        }
+         #box-3:hover{
+            transform: skew(25deg);
+        }
+         #box-4:hover{
+            transform: translate(100px,100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box-1">box-1</div>
+    <div class="box" id="box-2">box-2</div>
+    <div class="box" id="box-3">box-3</div>
+    <div class="box" id="box-4">box-4</div>
+    <div class="box" id="box-5">box-5</div>
+</body>
+</html>
